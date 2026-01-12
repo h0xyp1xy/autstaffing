@@ -1,0 +1,68 @@
+<svg width="260" height="70" viewBox="0 0 260 70" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .emblem-line { fill: none; stroke: #C0C0C0; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: miter; }
+      .emblem-fill { fill: #C0C0C0; stroke: none; }
+      .emblem-accent { fill: #D4AF37; }
+      .text-main { font-family: 'Arial', 'Helvetica', 'Inter', sans-serif; font-weight: 900; font-size: 20px; letter-spacing: -2px; fill: #0D0D0D; }
+      .text-sub { font-family: 'Arial', 'Helvetica', sans-serif; font-weight: 700; font-size: 7px; letter-spacing: 1.5px; fill: #C0C0C0; }
+    </style>
+  </defs>
+  
+  <!-- Эмблема: Щит = Механизм = Ключ (монолитная интеграция) -->
+  <g id="emblem" transform="translate(5, 5)">
+    <!-- Щит (геральдический, геометрический) -->
+    <g id="shield">
+      <path d="M 5 15 L 5 45 L 30 53 L 55 45 L 55 15 L 30 5 Z" class="emblem-line" stroke-width="3"/>
+      <!-- Внутренний контур (система защиты) -->
+      <path d="M 12 20 L 12 40 L 30 46 L 48 40 L 48 20 L 30 12 Z" class="emblem-line" stroke-width="1.5"/>
+    </g>
+    
+    <!-- Шестеренка (интегрирована в центр щита) -->
+    <g id="gear" transform="translate(30, 30)">
+      <!-- Центральная ось (золотая точка - 5% площади) -->
+      <circle cx="0" cy="0" r="1.2" class="emblem-accent"/>
+      <!-- Внутренний круг -->
+      <circle cx="0" cy="0" r="5" class="emblem-line" stroke-width="2"/>
+      <!-- Зубцы шестеренки (8 зубцов, симметрично) -->
+      <rect x="-2" y="-13" width="4" height="4" class="emblem-fill"/>
+      <rect x="-2" y="9" width="4" height="4" class="emblem-fill"/>
+      <rect x="-13" y="-2" width="4" height="4" class="emblem-fill"/>
+      <rect x="9" y="-2" width="4" height="4" class="emblem-fill"/>
+      <!-- Диагональные зубцы (под углом 45°) -->
+      <rect x="8" y="-10" width="4" height="4" class="emblem-fill" transform="rotate(45)"/>
+      <rect x="-10" y="8" width="4" height="4" class="emblem-fill" transform="rotate(45)"/>
+      <rect x="-10" y="-10" width="4" height="4" class="emblem-fill" transform="rotate(-45)"/>
+      <rect x="8" y="8" width="4" height="4" class="emblem-fill" transform="rotate(-45)"/>
+    </g>
+    
+    <!-- Технические линии системы (схематичные) -->
+    <g id="system-lines">
+      <line x1="18" y1="28" x2="42" y2="28" stroke="#C0C0C0" stroke-width="1"/>
+      <line x1="18" y1="32" x2="42" y2="32" stroke="#C0C0C0" stroke-width="1"/>
+    </g>
+    
+    <!-- Ключ (интегрирован в структуру щита) -->
+    <g id="key">
+      <!-- Головка ключа (с отверстием для оси) -->
+      <circle cx="48" cy="18" r="4.5" class="emblem-line" stroke-width="2.5"/>
+      <circle cx="48" cy="18" r="1.5" fill="#0D0D0D"/>
+      <!-- Стержень ключа (проходит сквозь щит) -->
+      <rect x="47" y="22" width="10" height="4" class="emblem-fill" rx="0.5"/>
+      <!-- Зубцы ключа (внутри щита) -->
+      <rect x="49" y="26" width="3" height="2.5" class="emblem-fill"/>
+      <rect x="50" y="28.5" width="1.5" height="3" class="emblem-fill"/>
+      <!-- Кончик ключа (золотой акцент - минимальный) -->
+      <circle cx="57" cy="24" r="0.9" class="emblem-accent"/>
+    </g>
+  </g>
+  
+  <!-- Текст "BELLE VIE" -->
+  <text x="75" y="38" class="text-main">BELLE VIE</text>
+  
+  <!-- Подзаголовок -->
+  <text x="75" y="50" class="text-sub">АУТСТАФФИНГ ПЕРСОНАЛА</text>
+  
+  <!-- Разделительная линия -->
+  <line x1="75" y1="53" x2="245" y2="53" stroke="#C0C0C0" stroke-width="1"/>
+</svg>

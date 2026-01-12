@@ -1,0 +1,32 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .emblem { fill: none; stroke: #C0C0C0; stroke-width: 1.2; stroke-linecap: round; }
+      .emblem-fill { fill: #C0C0C0; }
+      .emblem-accent { fill: #D4AF37; }
+    </style>
+  </defs>
+  
+  <!-- Упрощенная эмблема для favicon (16x16px+) -->
+  <g transform="translate(2, 2)">
+    <!-- Щит -->
+    <path d="M 2 4 L 2 24 L 14 28 L 26 24 L 26 4 L 14 2 Z" class="emblem" stroke-width="1.8"/>
+    <path d="M 5 7 L 5 21 L 14 24 L 23 21 L 23 7 L 14 5 Z" class="emblem" stroke-width="1"/>
+    
+    <!-- Шестеренка -->
+    <g transform="translate(14, 14)">
+      <circle cx="0" cy="0" r="0.6" class="emblem-accent"/>
+      <circle cx="0" cy="0" r="2.5" class="emblem" stroke-width="1.2"/>
+      <rect x="-1" y="-6" width="2" height="2" class="emblem-fill"/>
+      <rect x="-1" y="4" width="2" height="2" class="emblem-fill"/>
+      <rect x="-6" y="-1" width="2" height="2" class="emblem-fill"/>
+      <rect x="4" y="-1" width="2" height="2" class="emblem-fill"/>
+    </g>
+    
+    <!-- Ключ -->
+    <circle cx="23" cy="6" r="2" class="emblem" stroke-width="1.3"/>
+    <rect x="22.5" y="8" width="4" height="2" class="emblem-fill" rx="0.3"/>
+    <rect x="23.5" y="10" width="2" height="1.5" class="emblem-fill"/>
+    <circle cx="26" cy="9" r="0.5" class="emblem-accent"/>
+  </g>
+</svg>

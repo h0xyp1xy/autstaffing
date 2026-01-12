@@ -1,0 +1,43 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .emblem-line { fill: none; stroke: #C0C0C0; stroke-width: 2; stroke-linecap: round; stroke-linejoin: miter; }
+      .emblem-fill { fill: #C0C0C0; }
+      .emblem-accent { fill: #D4AF37; }
+    </style>
+  </defs>
+  
+  <!-- Эмблема: Щит = Механизм = Ключ (для favicon и компактного использования) -->
+  <g id="emblem" transform="translate(3, 3)">
+    <!-- Щит -->
+    <path d="M 3 9 L 3 45 L 27 51 L 51 45 L 51 9 L 27 3 Z" class="emblem-line" stroke-width="2.5"/>
+    <path d="M 9 14 L 9 40 L 27 45 L 45 40 L 45 14 L 27 8 Z" class="emblem-line" stroke-width="1.2"/>
+    
+    <!-- Шестеренка в центре -->
+    <g transform="translate(27, 27)">
+      <circle cx="0" cy="0" r="1" class="emblem-accent"/>
+      <circle cx="0" cy="0" r="4.5" class="emblem-line" stroke-width="1.8"/>
+      <!-- Зубцы -->
+      <rect x="-1.5" y="-11" width="3" height="3" class="emblem-fill"/>
+      <rect x="-1.5" y="8" width="3" height="3" class="emblem-fill"/>
+      <rect x="-11" y="-1.5" width="3" height="3" class="emblem-fill"/>
+      <rect x="8" y="-1.5" width="3" height="3" class="emblem-fill"/>
+      <rect x="7" y="-8" width="3" height="3" class="emblem-fill" transform="rotate(45)"/>
+      <rect x="-8" y="7" width="3" height="3" class="emblem-fill" transform="rotate(45)"/>
+      <rect x="-8" y="-8" width="3" height="3" class="emblem-fill" transform="rotate(-45)"/>
+      <rect x="7" y="7" width="3" height="3" class="emblem-fill" transform="rotate(-45)"/>
+    </g>
+    
+    <!-- Системные линии -->
+    <line x1="15" y1="24" x2="39" y2="24" stroke="#C0C0C0" stroke-width="0.8"/>
+    <line x1="15" y1="30" x2="39" y2="30" stroke="#C0C0C0" stroke-width="0.8"/>
+    
+    <!-- Ключ -->
+    <circle cx="45" cy="13" r="3.5" class="emblem-line" stroke-width="2"/>
+    <circle cx="45" cy="13" r="1.2" fill="#0D0D0D"/>
+    <rect x="44" y="16" width="8" height="3" class="emblem-fill" rx="0.4"/>
+    <rect x="46" y="19" width="2.5" height="2" class="emblem-fill"/>
+    <rect x="46.8" y="21" width="1.2" height="2.5" class="emblem-fill"/>
+    <circle cx="52" cy="17.5" r="0.7" class="emblem-accent"/>
+  </g>
+</svg>

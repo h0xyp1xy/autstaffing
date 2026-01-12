@@ -1,0 +1,18 @@
+{
+  "name": "autstaffing-landing",
+  "version": "2.0.0",
+  "description": "Одностраничный корпоративный сайт для компании по аутстаффингу складского персонала",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000"
+  },
+  "keywords": [
+    "landing",
+    "outstaffing",
+    "warehouse",
+    "b2b"
+  ],
+  "author": "",
+  "license": "UNLICENSED"
+}
