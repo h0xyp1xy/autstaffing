@@ -76,7 +76,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Шрифты -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- Основные стили -->
     <link rel="stylesheet" href="css/styles.css">
@@ -102,9 +102,9 @@
         <div class="header-container">
             <div class="header-left">
                 <a href="#hero" class="logo">
-                    <img src="assets/images/logo.svg" alt="Belle Vie" class="logo-img" onerror="this.onerror=null; this.src='assets/images/logo-emblem-only.svg';">
+                    <img src="assets/images/logo.svg" alt="Belle Vie" class="logo-img">
+                    <span class="logo-text">Belle Vie</span>
                 </a>
-                <span class="header-tagline">Федеральная сеть для крупного бизнеса</span>
             </div>
             <div class="header-phone-top">
                 <a href="tel:+74951251000" class="phone-link-top">
@@ -117,53 +117,40 @@
         </div>
     </header>
 
-    <!-- Навигация -->
-    <nav class="nav" id="mainNav">
-        <div class="nav-container">
-            <ul class="nav-list" id="navList">
-                <li><a href="#hero" class="nav-link active">Главная</a></li>
-                <li><a href="#about" class="nav-link">О нас</a></li>
-                <li><a href="#advantages" class="nav-link">Преимущества</a></li>
-                <li><a href="#process" class="nav-link">Процесс</a></li>
-                <li><a href="#calculator" class="nav-link">Калькулятор</a></li>
-                <li><a href="#results" class="nav-link">Результаты</a></li>
-                <li><a href="#faq" class="nav-link">FAQ</a></li>
-                <li><a href="#contact-form-section" class="nav-link">Контакты</a></li>
-            </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Переключить меню">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
 
     <!-- Основной контент -->
     <main class="main">
         <!-- HERO -->
         <section id="hero" class="hero">
-            <div class="hero-video-wrapper">
-                <video class="hero-video" autoplay muted loop playsinline>
-                    <source src="assets/video/warehouse-hero.mp4" type="video/mp4">
-                    <img src="https://centrmig.com/wp-content/uploads/2022/10/img_8444-edit-1280x960.jpg" alt="Складской комплекс">
-                </video>
+            <div class="hero-background-wrapper">
                 <div class="hero-overlay"></div>
             </div>
             <div class="hero-content">
                 <div class="hero-text-section">
-                    <h1 class="hero-title">
-                        <span class="hero-title-line">ВЕРНИТЕ КОНТРОЛЬ НАД СКЛАДОМ.</span>
-                        <span class="hero-title-line">ОБНУЛИТЕ КАДРОВЫЕ РИСКИ.</span>
-                    </h1>
-                    <p class="hero-subtitle">Ваши процессы. Наша гарантированная ответственность. Полная юридическая и финансовая защита для собственников.</p>
+                    <h1 class="hero-title">КОНТРОЛЬ — У ВАС. РИСКИ — НА НАС.</h1>
+                    <div class="hero-subtitle">
+                        <div class="hero-subtitle-item">
+                            <svg class="hero-check-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Аутстаффинг складского персонала с полной юридической и финансовой ответственностью.</span>
+                        </div>
+                        <div class="hero-subtitle-item">
+                            <svg class="hero-check-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Собственник защищён.</span>
+                        </div>
+                        <div class="hero-subtitle-item">
+                            <svg class="hero-check-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Потери исключены.</span>
+                        </div>
+                    </div>
                     <div class="hero-cta">
                         <a href="#contact-form-section" class="btn btn-primary">РАССЧИТАТЬ МОЮ ВЫГОДУ</a>
                     </div>
-                </div>
-                <div class="hero-image-section">
-                    <img src="https://centrmig.com/wp-content/uploads/2022/10/img_8638-1280x960.jpg" 
-                         alt="Сотрудники склада" 
-                         class="hero-staff-image" 
-                         loading="eager"
-                         onerror="this.src='https://centrmig.com/wp-content/uploads/2022/10/img_8582-1280x960.jpg'; this.onerror=null;">
                 </div>
             </div>
         </section>
@@ -174,9 +161,23 @@
                 <div class="about-layout">
                     <div class="about-text-content">
                         <h2 class="section-title">Мы решаем вопросы с персоналом</h2>
-                        <div class="about-content">
-                            <p>Современные подходы к бизнесу помогают решить вопросы, которые руководство уже приняло как данность. Аутстаффинг поможет исключить одни из самых затратных статей расходов и наладить удобную кадровую систему.</p>
-                            <p>Персонал работает на прежнем месте, но официально работодателем числится другая организация. В результате руководитель располагает необходимыми человеческими ресурсами, но не переживает об их содержании.</p>
+                        <div class="services-visual-grid">
+                            <div class="service-visual-item">
+                                <img src="https://centrmig.com/wp-content/uploads/2022/10/img_8444-edit-1280x960.jpg" alt="Решение трудовых споров" loading="lazy">
+                                <h3>Решение трудовых споров</h3>
+                            </div>
+                            <div class="service-visual-item">
+                                <img src="https://centrmig.com/wp-content/uploads/2022/10/img_8582-1280x960.jpg" alt="Начисление зарплат" loading="lazy">
+                                <h3>Начисление зарплат</h3>
+                            </div>
+                            <div class="service-visual-item">
+                                <img src="https://centrmig.com/wp-content/uploads/2022/10/img_8638-1280x960.jpg" alt="Оформление" loading="lazy">
+                                <h3>Оформление</h3>
+                            </div>
+                            <div class="service-visual-item">
+                                <img src="https://centrmig.com/wp-content/uploads/2022/10/rukopozhatie-1280x960.png" alt="Расчет, увольнение и т.д." loading="lazy">
+                                <h3>Расчет, увольнение и т.д.</h3>
+                            </div>
                         </div>
                         
                         <div class="features-grid">
@@ -197,27 +198,6 @@
                             </div>
                             <div class="feature-item">
                                 <div class="feature-text">уменьшение расходов на выплаты сотрудникам</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="about-visual-content">
-                        <div class="services-visual-grid">
-                            <div class="service-visual-item">
-                                <img src="https://centrmig.com/wp-content/uploads/2022/10/img_8444-edit-1280x960.jpg" alt="Решение трудовых споров" loading="lazy">
-                                <h3>Решение трудовых споров</h3>
-                            </div>
-                            <div class="service-visual-item">
-                                <img src="https://centrmig.com/wp-content/uploads/2022/10/img_8582-1280x960.jpg" alt="Начисление зарплат" loading="lazy">
-                                <h3>Начисление зарплат</h3>
-                            </div>
-                            <div class="service-visual-item">
-                                <img src="https://centrmig.com/wp-content/uploads/2022/10/img_8638-1280x960.jpg" alt="Оформление" loading="lazy">
-                                <h3>Оформление</h3>
-                            </div>
-                            <div class="service-visual-item">
-                                <img src="https://centrmig.com/wp-content/uploads/2022/10/rukopozhatie-1280x960.png" alt="Расчет, увольнение и т.д." loading="lazy">
-                                <h3>Расчет, увольнение и т.д.</h3>
                             </div>
                         </div>
                     </div>
@@ -883,7 +863,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="https://centrmig.com/wp-content/uploads/2022/09/2018-02-16-104832-logo2.png" alt="Belle Vie" class="footer-logo-img" onerror="this.style.display='none'">
+                        <img src="assets/images/logo.svg" alt="Belle Vie" class="footer-logo-img">
                         <span class="footer-logo-text">Belle Vie</span>
                     </div>
                     <p class="footer-phone"><a href="tel:+74951251000">+7 (495) 125-10-00</a></p>
