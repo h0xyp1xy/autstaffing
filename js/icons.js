@@ -76,9 +76,6 @@ const icons = {
         <line x1="15" y1="21" x2="15" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     </svg>`,
     
-    chat: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    </svg>`
 };
 
 // Функция для замены эмодзи на SVG
@@ -101,12 +98,6 @@ function replaceEmojisWithIcons() {
         }
     });
     
-    // Чат кнопка
-    const chatButton = document.querySelector('.smart-chat-button');
-    if (chatButton && chatButton.innerHTML.includes('💬')) {
-        chatButton.innerHTML = icons.chat;
-        chatButton.classList.add('icon-svg');
-    }
 }
 
 // Инициализация при загрузке DOM

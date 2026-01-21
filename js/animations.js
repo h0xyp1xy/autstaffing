@@ -64,13 +64,11 @@ document.addEventListener('DOMContentLoaded', function() {
             gsap.fromTo(card,
                 {
                     opacity: 0,
-                    y: 60,
-                    rotationX: 10
+                    scale: 0.95
                 },
                 {
                     opacity: 1,
-                    y: 0,
-                    rotationX: 0,
+                    scale: 1,
                     duration: 0.8,
                     delay: index * 0.2,
                     ease: 'power3.out',
@@ -192,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         gsap.fromTo({ value: 0 },
                             {
                                 value: number,
-                                duration: 2,
+                                duration: 4,
                                 ease: 'power2.out',
                                 onUpdate: function() {
                                     const current = Math.round(this.targets()[0].value);
@@ -257,4 +255,72 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', updateActiveNavSection);
     updateActiveNavSection();
+
+    // Hover animation for the phone button in the header
+    const phoneLinkTop = document.querySelector('.phone-link-top');
+    if (phoneLinkTop) {
+        const hoverDuration = 0.2;
+        const hoverEase = 'power2.out';
+
+        phoneLinkTop.addEventListener('mouseenter', () => {
+            if (typeof gsap !== 'undefined') {
+                gsap.to(phoneLinkTop, {
+                    backgroundColor: 'rgba(255, 106, 0, 0.1)',
+                    duration: hoverDuration,
+                    ease: hoverEase,
+                    overwrite: true
+                });
+            } else {
+                phoneLinkTop.style.backgroundColor = 'rgba(255, 106, 0, 0.1)';
+            }
+        });
+
+        phoneLinkTop.addEventListener('mouseleave', () => {
+            if (typeof gsap !== 'undefined') {
+                gsap.to(phoneLinkTop, {
+                    backgroundColor: 'rgba(13, 13, 13, 1)', // Assuming var(--bg-primary) is dark
+                    duration: hoverDuration,
+                    ease: hoverEase,
+                    overwrite: true
+                });
+            } else {
+                phoneLinkTop.style.backgroundColor = '';
+            }
+        });
+    }
+
+    // Hover animation for CTA buttons (same as phone button)
+    const ctaButtons = document.querySelectorAll('.btn-primary');
+    if (ctaButtons.length > 0) {
+        const hoverDuration = 0.2;
+        const hoverEase = 'power2.out';
+
+        ctaButtons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(button, {
+                        backgroundColor: 'rgba(255, 106, 0, 0.2)',
+                        duration: hoverDuration,
+                        ease: hoverEase,
+                        overwrite: true
+                    });
+                } else {
+                    button.style.backgroundColor = 'rgba(255, 106, 0, 0.2)';
+                }
+            });
+
+            button.addEventListener('mouseleave', () => {
+                if (typeof gsap !== 'undefined') {
+                    gsap.to(button, {
+                        backgroundColor: 'rgba(13, 13, 13, 1)', // var(--bg-primary)
+                        duration: hoverDuration,
+                        ease: hoverEase,
+                        overwrite: true
+                    });
+                } else {
+                    button.style.backgroundColor = '';
+                }
+            });
+        });
+    }
 });

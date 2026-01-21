@@ -2,25 +2,41 @@
 document.addEventListener('DOMContentLoaded', function() {
     const statNumbers = document.querySelectorAll('.stat-number');
     
+    // Ease-in-out function
+    function easeInOut(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+    
     function animateStat(element) {
         const target = parseInt(element.getAttribute('data-target'));
-        const duration = 2000;
-        const increment = target / (duration / 16);
-        let current = 0;
+        const duration = 4000;
+        const startTime = Date.now();
         
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
+        function update() {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeInOut(progress);
+            const current = Math.floor(easedProgress * target);
             
             if (target >= 1000) {
-                element.textContent = Math.floor(current).toLocaleString('ru-RU');
+                element.textContent = current.toLocaleString('ru-RU');
             } else {
-                element.textContent = Math.floor(current);
+                element.textContent = current;
             }
-        }, 16);
+            
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                // Ensure final value is set
+                if (target >= 1000) {
+                    element.textContent = target.toLocaleString('ru-RU');
+                } else {
+                    element.textContent = target;
+                }
+            }
+        }
+        
+        update();
     }
     
     // Анимация при скролле
