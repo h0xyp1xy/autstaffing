@@ -161,13 +161,13 @@ class CostCalculator {
         
         // Создание сегментов текущих затрат
         const colors = {
-            baseFOT: 'rgba(212, 175, 55, 0.3)',
-            taxes: 'rgba(192, 192, 192, 0.3)',
-            recruiting: 'rgba(205, 127, 50, 0.3)',
-            downtime: 'rgba(184, 115, 51, 0.3)',
-            admin: 'rgba(160, 160, 160, 0.3)',
-            risks: 'rgba(255, 99, 71, 0.3)',
-            seasonalityCost: 'rgba(212, 175, 55, 0.2)'
+            baseFOT: 'rgba(192, 192, 192, 0.2)',
+            taxes: 'rgba(192, 192, 192, 0.2)',
+            recruiting: 'rgba(192, 192, 192, 0.2)',
+            downtime: 'rgba(192, 192, 192, 0.2)',
+            admin: 'rgba(192, 192, 192, 0.2)',
+            risks: 'rgba(192, 192, 192, 0.2)',
+            seasonalityCost: 'rgba(192, 192, 192, 0.2)'
         };
         
         const segments = [
@@ -196,9 +196,10 @@ class CostCalculator {
         const outsourcedSegment = this.createCostSegment(
             'Единая ставка (все включено)',
             outsourcedCosts.total,
-            'rgba(212, 175, 55, 0.4)',
+            'rgba(192, 192, 192, 0.2)',
             delay
         );
+        outsourcedSegment.classList.add('single-rate');
         this.outsourcedCostsContainer.appendChild(outsourcedSegment);
         
         // Анимация итоговых сумм

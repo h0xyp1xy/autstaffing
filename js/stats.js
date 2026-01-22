@@ -2,37 +2,42 @@
 document.addEventListener('DOMContentLoaded', function() {
     const statNumbers = document.querySelectorAll('.stat-number');
     
-    // Ease-in-out function
-    function easeInOut(t) {
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    // Ease-out function
+    function easeOut(t) {
+        return 1 - Math.pow(1 - t, 3);
     }
     
     function animateStat(element) {
         const target = parseInt(element.getAttribute('data-target'));
-        const duration = 4000;
+        const suffix = element.getAttribute('data-suffix') || '';
+        const duration = 3000;
         const startTime = Date.now();
         
         function update() {
             const elapsed = Date.now() - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            const easedProgress = easeInOut(progress);
+            const easedProgress = easeOut(progress);
             const current = Math.floor(easedProgress * target);
             
+            let displayValue;
             if (target >= 1000) {
-                element.textContent = current.toLocaleString('ru-RU');
+                displayValue = current.toLocaleString('ru-RU');
             } else {
-                element.textContent = current;
+                displayValue = current.toString();
             }
+            element.textContent = displayValue + suffix;
             
             if (progress < 1) {
                 requestAnimationFrame(update);
             } else {
                 // Ensure final value is set
+                let finalValue;
                 if (target >= 1000) {
-                    element.textContent = target.toLocaleString('ru-RU');
+                    finalValue = target.toLocaleString('ru-RU');
                 } else {
-                    element.textContent = target;
+                    finalValue = target.toString();
                 }
+                element.textContent = finalValue + suffix;
             }
         }
         

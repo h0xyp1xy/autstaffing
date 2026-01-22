@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'p', 'span', 'div', 'li', 'td', 'th', 
         'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
         '.section-subtitle', '.hero-subtitle', '.feature-text',
-        '.advantage-card p', '.faq-answer p', '.timeline-description'
+        '.faq-answer p', '.timeline-description'
     ];
     
     // Elements to skip (already formatted or special)

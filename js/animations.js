@@ -7,31 +7,31 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Анимация появления секций
     function initScrollAnimations() {
-        // Анимация преимуществ
-        const advantageCards = document.querySelectorAll('.advantage-card');
-        advantageCards.forEach((card, index) => {
-            gsap.fromTo(card, 
-                {
-                    opacity: 0,
-                    y: 50,
-                    scale: 0.9
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    duration: 0.8,
-                    delay: index * 0.1,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 80%',
-                        end: 'top 50%',
-                        toggleActions: 'play none none reverse'
-                    }
-                }
-            );
-        });
+        // Анимация преимуществ - removed (advantages section removed)
+        // const advantageCards = document.querySelectorAll('.advantage-card');
+        // advantageCards.forEach((card, index) => {
+        //     gsap.fromTo(card, 
+        //         {
+        //             opacity: 0,
+        //             y: 50,
+        //             scale: 0.9
+        //         },
+        //         {
+        //             opacity: 1,
+        //             y: 0,
+        //             scale: 1,
+        //             duration: 0.8,
+        //             delay: index * 0.1,
+        //             ease: 'power2.out',
+        //             scrollTrigger: {
+        //                 trigger: card,
+        //                 start: 'top 80%',
+        //                 end: 'top 50%',
+        //                 toggleActions: 'play none none reverse'
+        //             }
+        //         }
+        //     );
+        // });
         
         // Анимация карточек результатов
         const resultCards = document.querySelectorAll('.result-card');
@@ -58,105 +58,79 @@ document.addEventListener('DOMContentLoaded', function() {
             );
         });
         
-        // Анимация CTA карточек
-        const ctaCards = document.querySelectorAll('.cta-card');
-        ctaCards.forEach((card, index) => {
-            gsap.fromTo(card,
-                {
-                    opacity: 0,
-                    scale: 0.95
-                },
-                {
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.8,
-                    delay: index * 0.2,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 80%',
-                        toggleActions: 'play none none reverse'
-                    }
-                }
-            );
-        });
+        // Анимация CTA карточек - removed (format section removed)
+        // const ctaCards = document.querySelectorAll('.cta-card');
+        // ctaCards.forEach((card, index) => {
+        //     gsap.fromTo(card,
+        //         {
+        //             opacity: 0,
+        //             scale: 0.95
+        //         },
+        //         {
+        //             opacity: 1,
+        //             scale: 1,
+        //             duration: 0.8,
+        //             delay: index * 0.2,
+        //             ease: 'power3.out',
+        //             scrollTrigger: {
+        //                 trigger: card,
+        //                 start: 'top 80%',
+        //                 toggleActions: 'play none none reverse'
+        //             }
+        //         }
+        //     );
+        // });
         
-        // Анимация timeline процесса с изображениями
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        timelineItems.forEach((item, index) => {
-            const timelineImage = item.querySelector('.timeline-image');
-            const timelineContent = item.querySelector('.timeline-content');
-            const timelineIcon = item.querySelector('.timeline-icon');
-            
-            // Анимация текстовой части
-            gsap.fromTo([timelineIcon, timelineContent],
-                {
-                    opacity: 0,
-                    x: -50
-                },
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.8,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: item,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    }
-                }
-            );
-            
-            // Анимация изображения с задержкой
-            if (timelineImage) {
-                gsap.fromTo(timelineImage,
-                    {
-                        opacity: 0,
-                        scale: 0.7,
-                        x: 50
-                    },
-                    {
-                        opacity: 1,
-                        scale: 1,
-                        x: 0,
-                        duration: 1,
-                        delay: 0.3,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: item,
-                            start: 'top 75%',
-                            toggleActions: 'play none none none'
-                        }
-                    }
-                );
-            }
-            
-            // Старая анимация для совместимости
-            gsap.fromTo(item,
-                {
-                    opacity: 0,
-                    x: -50
-                },
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.6,
-                    delay: index * 0.1,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: item,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse',
-                        onEnter: () => {
-                            item.classList.add('active');
-                        },
-                        onLeaveBack: () => {
-                            item.classList.remove('active');
-                        }
-                    }
-                }
-            );
-        });
+        // Анимация timeline процесса с изображениями - removed (process section removed)
+        // const timelineItems = document.querySelectorAll('.timeline-item');
+        // timelineItems.forEach((item, index) => {
+        //     const timelineImage = item.querySelector('.timeline-image');
+        //     const timelineContent = item.querySelector('.timeline-content');
+        //     const timelineIcon = item.querySelector('.timeline-icon');
+        //     
+        //     // Анимация текстовой части
+        //     gsap.fromTo([timelineIcon, timelineContent],
+        //         {
+        //             opacity: 0,
+        //             x: -50
+        //         },
+        //         {
+        //             opacity: 1,
+        //             x: 0,
+        //             duration: 0.8,
+        //             ease: 'power2.out',
+        //             scrollTrigger: {
+        //                 trigger: item,
+        //                 start: 'top 80%',
+        //                 toggleActions: 'play none none none'
+        //             }
+        //         }
+        //     );
+        //     
+        //     // Анимация изображения с задержкой
+        //     if (timelineImage) {
+        //         gsap.fromTo(timelineImage,
+        //             {
+        //                 opacity: 0,
+        //                 scale: 0.7,
+        //                 x: 50
+        //             },
+        //             {
+        //                 opacity: 1,
+        //                 scale: 1,
+        //                 x: 0,
+        //                 duration: 1,
+        //                 delay: 0.3,
+        //                 ease: 'power3.out',
+        //                 scrollTrigger: {
+        //                     trigger: item,
+        //                     start: 'top 75%',
+        //                     toggleActions: 'play none none none'
+        //                 }
+        //             }
+        //         );
+        //     }
+        // });
         
         // Параллакс для hero-секции
         const heroVideo = document.querySelector('.hero-video');
@@ -191,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             {
                                 value: number,
                                 duration: 4,
-                                ease: 'power2.out',
+                                ease: 'ease-out',
                                 onUpdate: function() {
                                     const current = Math.round(this.targets()[0].value);
                                     valueEl.textContent = current.toLocaleString('ru-RU') + (text.includes('%') ? '%' : '');
@@ -220,11 +194,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const target = document.querySelector(href);
             
             if (target) {
-                const navHeight = document.querySelector('.nav').offsetHeight;
-                const targetPosition = target.offsetTop - navHeight;
+                const header = document.querySelector('.header');
+                const headerHeight = header ? header.offsetHeight : 100;
+                const targetPosition = target.offsetTop - headerHeight - 20; // Extra 20px for spacing
                 
                 window.scrollTo({
-                    top: targetPosition,
+                    top: Math.max(0, targetPosition),
                     behavior: 'smooth'
                 });
             }
