@@ -317,17 +317,62 @@ button {
     justify-content: center;
     margin: 0 auto;
     cursor: pointer;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .preloader-svg svg {
     transform-origin: center;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@media (max-width: 768px) {
+    .preloader-svg {
+        width: 100%;
+        max-width: 100vw;
+        height: auto;
+        max-height: 80vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .preloader-svg svg {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: 80vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .preloader-svg {
+        width: 100%;
+        max-width: 100vw;
+        height: auto;
+        max-height: 70vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .preloader-svg svg {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: 70vh;
+    }
 }
 
 .preloader-spinner {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: -300px auto 0 auto;
+    margin: -100px auto 0 auto;
 }
 
 .preloader-progress {
@@ -394,15 +439,22 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 20px 0 10px;
     height: 100%;
     position: relative;
+}
+
+/* Ensure logo stays centered when other elements are hidden */
+@media (max-width: 768px) {
+    .header-container {
+        justify-content: center;
+    }
 }
 
 .header-logo-top-left {
     position: absolute;
     top: 50%;
-    left: 20px;
+    left: -40px;
     transform: translateY(calc(-50% + 2px));
     z-index: 1000;
     width: 180px;
@@ -440,10 +492,11 @@ button {
     display: flex;
     align-items: center;
     gap: 0;
-    margin-left: 0;
+    margin-left: 10px;
     flex: 0 0 auto;
     padding-left: 0;
     margin-right: auto;
+    position: relative;
 }
 
 .header-phone-top {
@@ -504,6 +557,7 @@ button {
     transition: color var(--transition-base);
     flex-shrink: 0;
     cursor: pointer;
+    transform-origin: center;
 }
 
 .header-tagline {
@@ -520,10 +574,17 @@ button {
 }
 
 .logo:hover .logo-img {
-    filter: drop-shadow(12px 12px 24px rgba(0, 0, 0, 0.7)) 
-            drop-shadow(-6px -6px 12px rgba(212, 175, 55, 0.15))
-            drop-shadow(0 0 30px rgba(212, 175, 55, 0.12));
-    transform: scale(0.7);
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.7)) 
+            drop-shadow(-5px -5px 10px rgba(212, 175, 55, 0.1))
+            drop-shadow(0 0 20px rgba(212, 175, 55, 0.08));
+    transform: scale(0.72);
+    color: var(--accent-gold);
+}
+
+.logo:hover .logo-text {
+    color: var(--accent-gold);
+    transform: scale(1.03) translateZ(0);
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
 }
 
 .logo-img {
@@ -540,11 +601,26 @@ button {
     transform-origin: center;
 }
 
+.logo-img:hover {
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.7)) 
+            drop-shadow(-5px -5px 10px rgba(212, 175, 55, 0.1))
+            drop-shadow(0 0 20px rgba(212, 175, 55, 0.08));
+    transform: scale(0.72);
+    color: var(--accent-gold);
+}
+
+.logo-img:hover ~ .logo-text {
+    color: var(--accent-gold);
+    transform: scale(1.03);
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+
 .logo-img svg {
     height: 187px;
     width: auto;
     display: block;
     color: inherit;
+    transition: all 0.3s ease;
 }
 
 .logo-img svg g,
@@ -555,15 +631,45 @@ button {
 .logo-img svg ellipse {
     fill: currentColor;
     color: inherit;
+    transition: all 0.3s ease;
+    pointer-events: all;
+}
+
+.logo-img:hover svg,
+.logo-img:hover svg path,
+.logo-img svg:hover,
+.logo-img svg path:hover {
+    color: var(--accent-gold);
 }
 
 .logo-text {
     color: var(--text-primary); /* Серебряный */
     margin: 0;
-    margin-left: -155px;
+    margin-left: -215px;
     margin-top: 6px;
     font-size: 24px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    transform-origin: left center;
+    position: relative;
+    left: 0;
+    flex-shrink: 0;
+}
+
+.logo-text:hover {
+    color: var(--accent-gold);
+    transform: scale(1.03);
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+
+/* When hovering on logo-text, also affect logo-img */
+.logo:has(.logo-text:hover) .logo-img {
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.7)) 
+            drop-shadow(-5px -5px 10px rgba(212, 175, 55, 0.1))
+            drop-shadow(0 0 20px rgba(212, 175, 55, 0.08));
+    transform: scale(0.72);
+    color: var(--accent-gold);
 }
 
 /* ============================================
@@ -728,9 +834,10 @@ button {
     position: relative;
     text-align: left;
     max-width: 650px;
-    margin-left: calc(5% - 240px);
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 80px;
-    padding: 60px 40px;
+    padding: 80px 50px;
     background: rgba(13, 13, 13, 0.7);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -781,7 +888,8 @@ button {
     font-size: 48px;
     font-weight: 600;
     line-height: 1.2;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    margin-top: 0;
     color: var(--text-primary);
     display: flex;
     flex-direction: column;
@@ -800,10 +908,11 @@ button {
     font-size: 20px;
     line-height: 1.8;
     color: var(--text-primary);
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    margin-top: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -855,6 +964,7 @@ button {
     gap: 20px;
     justify-content: flex-start;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .hero-cta .btn-primary {
@@ -901,7 +1011,8 @@ button {
     
     .hero-subtitle {
         font-size: 16px;
-        gap: 12px;
+        gap: 16px;
+        margin-bottom: 30px;
     }
     
     .hero-check-icon {
@@ -1304,6 +1415,14 @@ button {
     
     .single-rate-item {
         padding: 20px;
+    }
+}
+
+@media (max-width: 800px) {
+    /* Скрыть элемент "Гарантии замены" (8-й элемент) на маленьких экранах */
+    .single-rate-grid .single-rate-item:nth-child(8),
+    .single-rate-item:last-child {
+        display: none !important;
     }
 }
 
@@ -2529,6 +2648,8 @@ button {
     height: 325px;
     object-fit: cover;
     cursor: normal;
+    transition: transform 0.25s;
+    transform-origin: center center;
 }
 
 .service-visual-item::after {
@@ -2636,6 +2757,7 @@ button {
     align-items: center;
     line-height: 0;
     color: var(--text-primary);
+    cursor: pointer;
 }
 
 .footer-logo-img svg {
@@ -2660,6 +2782,22 @@ button {
     font-weight: 600;
     color: var(--text-primary);
     margin: 0;
+    transition: all 0.3s ease;
+    display: inline-block;
+    transform-origin: center;
+    cursor: pointer;
+}
+
+.footer-logo:hover .footer-logo-text {
+    color: var(--accent-gold);
+    transform: scale(1.03);
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+
+.footer-logo-text:hover {
+    color: var(--accent-gold);
+    transform: scale(1.03);
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
 }
 
 .footer-phone,
@@ -3575,6 +3713,43 @@ button {
         display: none;
     }
     
+    .header-container {
+        justify-content: center;
+        position: relative;
+    }
+    
+    .header-left {
+        position: relative;
+        left: 0;
+        transform: none;
+        margin: 0;
+        flex: 0 0 auto;
+        width: auto;
+    }
+    
+    .logo {
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        transform: none !important;
+    }
+    
+    .logo-text {
+        margin-left: -215px !important;
+        margin-top: 6px !important;
+        position: relative !important;
+        left: 0 !important;
+        transform: none !important;
+    }
+    
+    .logo:hover .logo-img {
+        transform: scale(0.72) !important;
+    }
+    
+    .logo:hover .logo-text {
+        transform: scale(1.03) translateZ(0) !important;
+    }
+    
     .section-title {
         font-size: 28px;
     }
@@ -3624,9 +3799,9 @@ button {
     }
     
     .features-grid {
-        grid-template-columns: repeat(5, minmax(100px, 1fr));
-        gap: 8px;
-        overflow-x: auto;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        overflow-x: visible;
     }
     
     .advantages-grid,
@@ -3659,6 +3834,59 @@ button {
     }
 }
 
+@media (max-width: 600px) {
+    .header-container {
+        justify-content: center;
+        position: relative;
+    }
+    
+    .header-left {
+        position: relative !important;
+        left: 0 !important;
+        transform: none !important;
+        margin: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        flex: 0 0 auto;
+        width: auto;
+        right: auto;
+    }
+    
+    .logo {
+        justify-content: flex-start;
+        align-items: center;
+        transform: none !important;
+        transform-origin: center;
+        position: relative;
+        margin: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    .logo-img {
+        transform-origin: center;
+    }
+    
+    .logo:hover .logo-img {
+        transform: scale(0.72) !important;
+    }
+    
+    .logo-text {
+        margin-left: -215px !important;
+        margin-top: 6px !important;
+        transform-origin: left center;
+        position: relative !important;
+        left: 0 !important;
+    }
+    
+    .logo:hover .logo-text {
+        transform: scale(1.03) translateZ(0) !important;
+    }
+    
+    .header-logo-top-left {
+        display: none;
+    }
+}
 
 @media (max-width: 480px) {
     .section-title {

@@ -58,6 +58,97 @@ document.addEventListener('DOMContentLoaded', function() {
             );
         });
         
+        // Анимация сервисных элементов (Кадры, Зарплата, Споры, Ротация)
+        const serviceItems = document.querySelectorAll('.service-visual-item');
+        serviceItems.forEach((item, index) => {
+            const img = item.querySelector('img');
+            const h3 = item.querySelector('h3');
+            
+            // Анимация контейнера
+            gsap.fromTo(item,
+                {
+                    opacity: 0,
+                    y: 60,
+                    scale: 0.9
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.8,
+                    delay: index * 0.15,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
+            
+            // Отдельная анимация для изображения (zoom in с постоянной скоростью)
+            if (img) {
+                gsap.fromTo(img,
+                    {
+                        opacity: 0,
+                        scale: 1
+                    },
+                    {
+                        opacity: 1,
+                        scale: 1.15,
+                        duration: 0.5,
+                        delay: index * 0.15 + 0.2,
+                        scrollTrigger: {
+                            trigger: item,
+                            start: 'top 85%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            }
+            
+            // Отдельная анимация для текста
+            if (h3) {
+                gsap.fromTo(h3,
+                    {
+                        opacity: 0,
+                        y: 30
+                    },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.6,
+                        delay: index * 0.15 + 0.4,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: item,
+                            start: 'top 85%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            }
+            
+            // Hover анимация для изображения
+            if (img) {
+                item.addEventListener('mouseenter', () => {
+                    gsap.to(img, {
+                        scale: 1.1,
+                        duration: 0.5,
+                        ease: 'power2.out'
+                    });
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    gsap.to(img, {
+                        scale: 1,
+                        duration: 0.5,
+                        ease: 'power2.out'
+                    });
+                });
+            }
+        });
+        
         // Анимация CTA карточек - removed (format section removed)
         // const ctaCards = document.querySelectorAll('.cta-card');
         // ctaCards.forEach((card, index) => {

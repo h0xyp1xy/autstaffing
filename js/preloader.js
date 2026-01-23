@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         spinnerContainer.style.cssText = `
             width: 50px;
             height: 50px;
-            margin: -300px auto 0 auto;
+            margin: -100px auto 0 auto;
             position: relative;
             display: flex;
             align-items: center;
