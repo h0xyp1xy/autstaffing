@@ -1,5 +1,26 @@
 // Основной файл с общей функциональностью
+
+// Disable browser's automatic scroll restoration
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// Reset scroll to top immediately (runs as soon as script loads)
+window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+// Reset scroll to top on page load/refresh
+window.addEventListener('load', function() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+});
+
+// Reset scroll immediately when page is about to unload (for refresh)
+window.addEventListener('beforeunload', function() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+});
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Reset scroll to top on page load
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     
     // Мобильное меню
     const navToggle = document.getElementById('navToggle');
@@ -151,18 +172,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await response.json();
             
             if (result.success) {
-                // Показываем сообщение об успехе
-                showFormSuccess(mainContactForm, 'Спасибо! Ваша заявка отправлена. Наш специалист свяжется с вами в течение 15 минут.');
-                
-                // Очистка формы
-                mainContactForm.reset();
-                
-                // Отправка события в аналитику
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'form_submit', {
-                        'event_category': 'Contact',
-                        'event_label': 'Main Contact Form'
-                    });
+        // Показываем сообщение об успехе
+        showFormSuccess(mainContactForm, 'Спасибо! Ваша заявка отправлена. Наш специалист свяжется с вами в течение 15 минут.');
+        
+        // Очистка формы
+        mainContactForm.reset();
+        
+        // Отправка события в аналитику
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'form_submit', {
+                'event_category': 'Contact',
+                'event_label': 'Main Contact Form'
+            });
                 }
             } else {
                 showFormError(mainContactForm, result.error || 'Ошибка при отправке формы. Попробуйте еще раз.');
@@ -292,19 +313,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (result.success) {
                 // Показываем сообщение об успехе
-                showSuccess('Спасибо! Расчет сохранен. Менеджер свяжется с вами в течение 15 минут');
-                
-                // Очистка формы
-                if (contactForm) {
-                    contactForm.reset();
-                }
-                
-                // Закрытие модального окна через 2 секунды
-                setTimeout(() => {
-                    if (modal) {
-                        modal.classList.remove('active');
-                    }
-                }, 2000);
+        showSuccess('Спасибо! Расчет сохранен. Менеджер свяжется с вами в течение 15 минут');
+        
+        // Очистка формы
+        if (contactForm) {
+            contactForm.reset();
+        }
+        
+        // Закрытие модального окна через 2 секунды
+        setTimeout(() => {
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }, 2000);
             } else {
                 showError(result.error || 'Ошибка при отправке формы. Попробуйте еще раз.');
             }

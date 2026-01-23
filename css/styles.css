@@ -58,6 +58,12 @@ html {
     background-color: var(--bg-primary);
 }
 
+/* Hide scrollbar during preloader */
+html.preloader-active,
+html.preloader-active body {
+    overflow: hidden !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -237,9 +243,8 @@ button {
 
 .btn-primary:hover {
     /* Background color is handled by GSAP animation */
-    box-shadow:  6px 6px 12px #050505,
-             -6px -6px 12px #151515;
     color: #ff6a00;
+    animation: btnGlow 2s ease-in-out infinite;
 }
 
 .btn-primary:active {
@@ -295,6 +300,7 @@ button {
     gap: 40px;
     width: 100%;
     height: 100%;
+    margin-top: -110px;
 }
 
 .preloader-content > * + * {
@@ -405,6 +411,8 @@ button {
     align-items: center;
     justify-content: center;
     overflow: visible;
+    cursor: default;
+    pointer-events: none;
 }
 
 .header-logo-top-left svg {
@@ -413,11 +421,19 @@ button {
     max-width: 180px;
     max-height: 180px;
     display: block;
+    cursor: default;
+    pointer-events: none;
 }
 
-.header-logo-top-left svg g,
+.header-logo-top-left svg g {
+    cursor: pointer;
+    pointer-events: all;
+}
+
 .header-logo-top-left svg path {
     fill: var(--text-primary);
+    cursor: pointer;
+    pointer-events: all;
 }
 
 .header-left {
@@ -458,9 +474,8 @@ button {
 
 .phone-link-top:hover {
     background: var(--bg-primary);
-    box-shadow:  5px 5px 10px #050505,
-             -5px -5px 10px #151515;
     color: #ff6a00;
+    animation: btnGlow 2s ease-in-out infinite;
 }
 
 .phone-link-top:active {
@@ -488,6 +503,7 @@ button {
     font-size: 20px;
     transition: color var(--transition-base);
     flex-shrink: 0;
+    cursor: pointer;
 }
 
 .header-tagline {
@@ -545,7 +561,9 @@ button {
     color: var(--text-primary); /* Серебряный */
     margin: 0;
     margin-left: -155px;
+    margin-top: 6px;
     font-size: 24px;
+    cursor: pointer;
 }
 
 /* ============================================
@@ -711,7 +729,7 @@ button {
     text-align: left;
     max-width: 650px;
     margin-left: calc(5% - 240px);
-    margin-top: 100px;
+    margin-top: 80px;
     padding: 60px 40px;
     background: rgba(13, 13, 13, 0.7);
     backdrop-filter: blur(20px);
@@ -846,9 +864,8 @@ button {
 
 .hero-cta .btn-primary:hover {
     /* Background color is handled by GSAP animation */
-    box-shadow:  6px 6px 12px #050505,
-             -6px -6px 12px #151515 !important;
     color: #ff6a00 !important;
+    animation: btnGlow 2s ease-in-out infinite;
 }
 
 @keyframes fadeInUp {
@@ -859,6 +876,21 @@ button {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes btnGlow {
+    0%, 100% {
+        box-shadow:  6px 6px 12px #050505,
+                 -6px -6px 12px #151515,
+                 0 0 10px rgba(255, 106, 0, 0.3),
+                 0 0 20px rgba(255, 106, 0, 0.15);
+    }
+    50% {
+        box-shadow:  6px 6px 12px #050505,
+                 -6px -6px 12px #151515,
+                 0 0 18px rgba(255, 106, 0, 0.5),
+                 0 0 35px rgba(255, 106, 0, 0.25);
     }
 }
 
@@ -2525,6 +2557,12 @@ button {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 4px 16px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.5);
     box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.6), inset 0 -30px 50px rgba(0, 0, 0, 0.4);
     z-index: 2;
+    line-height: 1.4;
+}
+
+.service-first-word {
+    display: block;
+    margin-bottom: 4px;
 }
 
 .service-visual-hover-text {
@@ -2725,7 +2763,7 @@ button {
     padding: var(--section-padding);
     background-color: var(--bg-primary);
     border-radius: 30px;
-    margin-top: -50px;
+    margin-top: -180px;
     padding-top: 110px;
 }
 
@@ -3214,6 +3252,8 @@ button {
 .contact-form-info {
     position: sticky;
     top: 100px;
+    align-self: start;
+    padding-top: 40px;
 }
 
 .contact-form-title {
@@ -3339,23 +3379,37 @@ button {
     line-height: 1.6;
 }
 
+.checkbox-label-main span {
+    margin-top: -3px;
+}
+
 .checkbox-label-main input[type="checkbox"] {
     width: 20px;
     height: 20px;
     cursor: pointer;
     accent-color: var(--accent-gold);
     flex-shrink: 0;
-    margin-top: 6px;
-    margin-left: -4px;
+    margin-top: 0;
+    margin-left: 0;
     appearance: none;
     -webkit-appearance: none;
     background-color: rgba(13, 13, 13, 0.8);
     border: 1px solid rgba(192, 192, 192, 0.1);
     border-radius: 4px;
     position: relative;
+    vertical-align: middle;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4),
                 -2px -2px 4px rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
+    align-self: center;
+}
+
+.checkbox-label-main:hover input[type="checkbox"] {
+    transform: scale(1.1);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4),
+                -2px -2px 4px rgba(255, 255, 255, 0.05),
+                0 0 8px rgba(255, 106, 0, 0.3);
+    border-color: rgba(255, 106, 0, 0.3);
 }
 
 .checkbox-label-main input[type="checkbox"]:checked {
@@ -3622,5 +3676,167 @@ button {
     
     .phone-link span {
         font-size: 13px;
+    }
+}
+
+/* ============================================
+   OFFER SECTION
+   ============================================ */
+.offer-section {
+    padding: var(--section-padding);
+    background-color: var(--bg-primary);
+    border-radius: 30px;
+    margin-top: 100px;
+    min-height: calc(100vh - 200px);
+}
+
+.offer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background: rgba(13, 13, 13, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+        /* Neumorphic shadows */
+        8px 8px 16px rgba(0, 0, 0, 0.4),
+        -8px -8px 16px rgba(255, 255, 255, 0.02),
+        inset 4px 4px 8px rgba(0, 0, 0, 0.3),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.01),
+        /* Glassmorphic depth */
+        0 20px 60px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.offer-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        transparent
+    );
+    pointer-events: none;
+}
+
+.offer-intro {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(192, 192, 192, 0.1);
+}
+
+.offer-date {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.offer-date strong {
+    color: var(--text-primary);
+}
+
+.offer-intro p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+.offer-article {
+    margin-bottom: 40px;
+}
+
+.offer-article h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 106, 0, 0.3);
+}
+
+.offer-article h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.offer-article p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+.offer-article ul {
+    margin: 20px 0;
+    padding-left: 30px;
+}
+
+.offer-article li {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    list-style-type: disc;
+}
+
+.offer-article a {
+    color: #ff6a00;
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.offer-article a:hover {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+.offer-footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(192, 192, 192, 0.1);
+    text-align: center;
+}
+
+.offer-footer p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.offer-signature {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .offer-content {
+        padding: 30px 20px;
+    }
+    
+    .offer-article h2 {
+        font-size: 24px;
+    }
+    
+    .offer-article h3 {
+        font-size: 20px;
+    }
+    
+    .offer-article p,
+    .offer-article li {
+        font-size: 15px;
     }
 }

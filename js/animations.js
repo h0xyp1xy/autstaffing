@@ -231,71 +231,9 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateActiveNavSection);
     updateActiveNavSection();
 
-    // Hover animation for the phone button in the header
-    const phoneLinkTop = document.querySelector('.phone-link-top');
-    if (phoneLinkTop) {
-        const hoverDuration = 0.2;
-        const hoverEase = 'power2.out';
+    // Hover animation for the phone button in the header - background change removed, only glow animation remains
+    // Background color change removed as per user request
 
-        phoneLinkTop.addEventListener('mouseenter', () => {
-            if (typeof gsap !== 'undefined') {
-                gsap.to(phoneLinkTop, {
-                    backgroundColor: 'rgba(255, 106, 0, 0.1)',
-                    duration: hoverDuration,
-                    ease: hoverEase,
-                    overwrite: true
-                });
-            } else {
-                phoneLinkTop.style.backgroundColor = 'rgba(255, 106, 0, 0.1)';
-            }
-        });
-
-        phoneLinkTop.addEventListener('mouseleave', () => {
-            if (typeof gsap !== 'undefined') {
-                gsap.to(phoneLinkTop, {
-                    backgroundColor: 'rgba(13, 13, 13, 1)', // Assuming var(--bg-primary) is dark
-                    duration: hoverDuration,
-                    ease: hoverEase,
-                    overwrite: true
-                });
-            } else {
-                phoneLinkTop.style.backgroundColor = '';
-            }
-        });
-    }
-
-    // Hover animation for CTA buttons (same as phone button)
-    const ctaButtons = document.querySelectorAll('.btn-primary');
-    if (ctaButtons.length > 0) {
-        const hoverDuration = 0.2;
-        const hoverEase = 'power2.out';
-
-        ctaButtons.forEach(button => {
-            button.addEventListener('mouseenter', () => {
-                if (typeof gsap !== 'undefined') {
-                    gsap.to(button, {
-                        backgroundColor: 'rgba(255, 106, 0, 0.2)',
-                        duration: hoverDuration,
-                        ease: hoverEase,
-                        overwrite: true
-                    });
-                } else {
-                    button.style.backgroundColor = 'rgba(255, 106, 0, 0.2)';
-                }
-            });
-
-            button.addEventListener('mouseleave', () => {
-                if (typeof gsap !== 'undefined') {
-                    gsap.to(button, {
-                        backgroundColor: 'rgba(13, 13, 13, 1)', // var(--bg-primary)
-                        duration: hoverDuration,
-                        ease: hoverEase,
-                        overwrite: true
-                    });
-                } else {
-                    button.style.backgroundColor = '';
-                }
-            });
-        });
-    }
+    // Hover animation for CTA buttons - background change removed, only glow animation remains
+    // Background color change removed as per user request
 });

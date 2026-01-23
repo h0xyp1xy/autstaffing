@@ -1,12 +1,22 @@
 // Preloader с анимацией логотипа
+
+// Hide scrollbar immediately when script loads (before DOM is ready)
+if (document.documentElement) {
+    document.documentElement.classList.add('preloader-active');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const preloader = document.getElementById('preloader');
     const preloaderText = document.getElementById('preloaderText');
     const svg = document.querySelector('.preloader-svg');
     
+    // Ensure scrollbar is hidden
+    document.documentElement.classList.add('preloader-active');
+    
     // Проверяем наличие необходимых элементов
     if (!preloader || !svg) {
         console.warn('Preloader elements not found');
+        document.documentElement.classList.remove('preloader-active');
         return;
     }
     
@@ -172,6 +182,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     if (preloader) {
                         preloader.classList.add('hidden');
+                        // Show scrollbar when preloader is hidden
+                        document.documentElement.classList.remove('preloader-active');
                         setTimeout(() => {
                             if (preloader) {
                                 preloader.style.display = 'none';
